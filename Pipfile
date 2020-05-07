@@ -1,0 +1,18 @@
+[[source]]
+name = "custom"
+url = "https://mirrors.aliyun.com/pypi/simple/"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+jieba = "*"
+mypy = "*"
+lxml = "*"
+beautifulsoup4 = "*"
+aiohttp = "*"
+cchardet = "*"
+aiodns = "*"
+
+[requires]
+python_version = "3.8"
