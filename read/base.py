@@ -1,7 +1,7 @@
 import os.path
 import abc
 
-class Reader(metaclass=abc.ABCMeta):
+class Base(metaclass=abc.ABCMeta):
     def __init__(self, filepath: str, check: bool=True) -> None:
         self.filepath = filepath        # 文件路径
         self.encoding = 'utf-8'         # 编码方式

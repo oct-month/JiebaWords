@@ -4,9 +4,9 @@ from pdfminer.layout import LAParams
 from pdfminer.pdfinterp import PDFResourceManager, process_pdf
 import os
 
-from reader import Reader
+from .base import Base
 
-class PdfReader(Reader):
+class PdfReader(Base):
     def __init__(self, filepath: str) -> None:
         super().__init__(filepath)
     

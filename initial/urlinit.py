@@ -2,13 +2,15 @@ import asyncio
 import aiohttp
 import os
 from hashlib import md5
+from typing import List
 
-from reader import Reader
-from htmlreader import HtmlReader
+from .base import Base
 
-class UrlReader(Reader):
+__all__ = ['UrlInit', ]
+
+
+class UrlGet:
     def __init__(self, url: str, session: aiohttp.ClientSession) -> None:
-        super().__init__(url, check=False)
         self.url = url
         self.session = session
     
@@ -36,22 +38,33 @@ class UrlReader(Reader):
             f.write(self.content)
             self.filepath = filepath
 
-    async def read_all(self) -> str:
+    async def get_path(self) -> str:
         await self.__get_conent()
-        tap = HtmlReader(self.filepath)
-        return tap.read_all()
+        return self.filepath
 
 
-if __name__ == "__main__":
-    async def main():
-        async with aiohttp.ClientSession() as session:
-            u = UrlReader('https://www.runoob.com/regexp/regexp-syntax.html', session)
-            print(await u.read_all())
-
-    loop = asyncio.get_event_loop()
-    task = asyncio.ensure_future(main())
-    tasks = [task, ]
-    loop.run_until_complete(asyncio.wait(tasks))
-
+class UrlInit(Base):
+    def __init__(self, paths: List[str]) -> None:
+        self.paths = paths
     
+    def __is_url(self, path: str) -> bool:
+        """判断字符串是否是url"""
+        if not path.startswith(('http://', 'https://', 'www.')):
+            return False
+        return True
+
+    async def __get_paths(self) -> None:
+        """更新paths中的url为cache文件位置"""
+        async with aiohttp.ClientSession() as session:
+            for i, url in enumerate(self.paths):
+                if self.__is_url(url):
+                    self.paths[i] = await UrlGet(url, session).get_path()
+    
+    def init_paths(self) -> List[str]:
+        loop = asyncio.get_event_loop()
+        task = asyncio.ensure_future(self.__get_paths())
+        loop.run_until_complete(task)
+        return self.paths
+
+
 

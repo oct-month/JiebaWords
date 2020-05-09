@@ -1,9 +1,9 @@
 from bs4 import BeautifulSoup
 import re
 
-from reader import Reader
+from .base import Base
 
-class HtmlReader(Reader):
+class HtmlReader(Base):
     def __init__(self, filepath: str) -> None:
         super().__init__(filepath)
     
@@ -11,9 +11,9 @@ class HtmlReader(Reader):
         with open(self.filepath, 'r') as f:
             tap = BeautifulSoup(f, 'lxml')
             self.content = tap.prettify()
-            return self.do_filter()
+            return self.__do_filter()
             
-    def do_filter(self) -> str:
+    def __do_filter(self) -> str:
         """过滤html中无用的部分"""
         self.content = re.sub(r'<script.*?>.*?</script>', '', self.content, flags=re.S | re.I)
         self.content = re.sub(r'<style>.*?</style>', '', self.content, flags=re.S | re.I)

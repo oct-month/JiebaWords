@@ -1,6 +1,6 @@
-from reader import Reader
+from .base import Base
 
-class TxtReader(Reader):
+class TxtReader(Base):
     def __init__(self, filepath: str, encoding: str='utf-8') -> None:
         super().__init__(filepath)
         self.encoding = encoding
