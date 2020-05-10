@@ -1,3 +1,4 @@
+"""文本文件读取"""
 from .base import Base
 
 class TxtReader(Base):

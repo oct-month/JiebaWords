@@ -1,4 +1,4 @@
-"""读文件模块"""
+"""将传入的path全部读取"""
 import os.path
 from typing import Dict, List
 
@@ -18,18 +18,18 @@ READ_TABLE = {
 
 class ReadModule:
     """对外接口（外观模式）"""
-    def __init__(self, paths: List[str]):
+    def __init__(self, paths: List[str]) -> None:
         self.paths = paths
         self.content = ''
         
-    def __get_content(self):
+    def __get_content(self) -> None:
         for path in self.paths:
             exten_name = os.path.splitext(path)[1]
             mod = READ_TABLE.get(exten_name, None)    
             mod = mod or READ_TABLE.get('default')
             self.content += mod(path).read_all() + '\r\n'
 
-    def get_result(self):
+    def get_result(self) -> str:
         """获取所有文字"""
         self.__get_content()
         return self.content

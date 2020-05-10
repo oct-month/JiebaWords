@@ -1,3 +1,4 @@
+"""pdf文件读取"""
 from io import StringIO, open
 from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
