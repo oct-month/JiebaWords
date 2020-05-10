@@ -2,7 +2,7 @@
 import os
 from hashlib import md5
 
-CACHE_PATH = 'cache' + os.path.sep + 'files' + os.path.sep
+CACHE_PATH = 'cache/files/'
 ENCODING = 'utf-8'
 
 class CacheModule:

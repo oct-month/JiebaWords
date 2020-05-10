@@ -3,7 +3,6 @@ from io import StringIO, open
 from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
 from pdfminer.pdfinterp import PDFResourceManager, process_pdf
-import os
 
 from .base import Base
 

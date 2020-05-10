@@ -1,8 +1,6 @@
 """把path中的url换成cache目录的路径"""
 import asyncio
 import aiohttp
-import os
-from hashlib import md5
 from typing import List
 
 from .base import Base
