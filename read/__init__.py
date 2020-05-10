@@ -33,8 +33,7 @@ class ReadModule:
     def get_result(self) -> str:
         """获取所有文字"""
         self.__get_content()
-        path = CacheModule.make_cache(self.content, 'analysis')
+        path = CacheModule.make_cache(self.content, 'txt')
         return path
 
 
-    

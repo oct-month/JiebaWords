@@ -1,10 +1,11 @@
 """文本文件读取"""
+from encode import EncodeModule
 from .base import Base
 
 class TxtReader(Base):
-    def __init__(self, filepath: str, encoding: str='utf-8') -> None:
+    def __init__(self, filepath: str) -> None:
         super().__init__(filepath)
-        self.encoding = encoding
+        self.encoding = EncodeModule(filepath).get_encoding()
 
     def read_all(self) -> str:
         with open(self.filepath, 'r', encoding=self.encoding) as f:

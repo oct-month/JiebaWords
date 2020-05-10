@@ -11,8 +11,6 @@ class JiebAnaly:
     def analyse(self, num: int=20) -> dict:
         with open(self.path) as f:
             content = f.read()
-            return extract_tags(content, topK=num, withWeight=True)
-
-    
-
+            result = extract_tags(content, topK=num, withWeight=True)
+            return dict(result)
 
