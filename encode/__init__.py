@@ -10,5 +10,7 @@ class EncodeModule:
             encoding = detect(data).get('encoding', 'utf-8')
             if encoding == 'GB2312' or encoding == 'gb2312':
                 encoding = 'gbk'
+            else:
+                encoding = 'utf-8'
             return encoding
 

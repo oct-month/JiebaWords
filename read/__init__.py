@@ -30,7 +30,7 @@ class ReadModule:
             mod = mod or READ_TABLE.get('default')
             self.content += mod(path).read_all() + '\r\n'
 
-    def get_result(self) -> str:
+    def read_all(self) -> str:
         """获取所有文字"""
         self.__get_content()
         path = CacheModule.make_cache(self.content, 'txt')

@@ -15,5 +15,8 @@ def test_read():
     print(n)
 
 if __name__ == "__main__":
-    test_read()
-
+    a = ['test', 'http://www.chinadaily.com.cn/', 'https://www.androiddevtools.cn/', 'https://www.dytt8.net/html/gndy/index.html']
+    a = InitialModule(a).init_paths()
+    path = ReadModule(a).read_all()
+    result = AnalysisModule(path, 30).analyse()
+    print(result)
