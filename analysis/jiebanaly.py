@@ -1,15 +1,19 @@
+"""使用jieba引擎分析词频"""
+from typing import Dict
 from jieba import set_dictionary
 from jieba.analyse import extract_tags, set_stop_words
 
+from .base import Base
+
 STOP_WORDS = 'stopwords/all_stopwords.txt'
 
-class JiebAnaly:
+class JiebAnaly(Base):
     def __init__(self, path: str) -> None:
         self.path = path
         set_stop_words(STOP_WORDS)
 
-    def analyse(self, num: int=20) -> dict:
-        with open(self.path) as f:
+    def analyse(self, num: int=20) -> Dict[str, float]:
+        with open(self.path, 'r', encoding='utf-8') as f:
             content = f.read()
             result = extract_tags(content, topK=num, withWeight=True)
             return dict(result)

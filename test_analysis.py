@@ -1,13 +1,13 @@
 from read import ReadModule
 from initial import InitialModule
-from analysis.jiebanaly import JiebAnaly
+from analysis import AnalysisModule
 
 def test_read():
-    a = ['test', 'http://www.chinadaily.com.cn/']
+    a = ['ttt', 'http://www.chinadaily.com.cn/']
     a = InitialModule(a).init_paths()
     content = ReadModule(a).get_result()
     print(content)
-    result = JiebAnaly(content).analyse()
+    result = AnalysisModule(content).analyse()
     print(result)
     n = 0
     for i in result.values():
