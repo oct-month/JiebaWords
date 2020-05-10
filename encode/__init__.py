@@ -8,7 +8,7 @@ class EncodeModule:
         with open(self.path, 'rb') as f:
             data = f.read()
             encoding = detect(data).get('encoding', 'utf-8')
-            if encoding == 'GB2312' or 'gb2312':
+            if encoding == 'GB2312' or encoding == 'gb2312':
                 encoding = 'gbk'
             return encoding
 

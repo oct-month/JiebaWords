@@ -2,14 +2,16 @@
 from bs4 import BeautifulSoup
 import re
 
+from encode import EncodeModule
 from .base import Base
 
 class HtmlReader(Base):
     def __init__(self, filepath: str) -> None:
         super().__init__(filepath)
+        self.encoding = EncodeModule(filepath).get_encoding()
     
     def read_all(self) -> str:
-        with open(self.filepath, 'r') as f:
+        with open(self.filepath, 'r', encoding=self.encoding) as f:
             tap = BeautifulSoup(f, 'lxml')
             self.content = tap.prettify()
             return self.__do_filter()
