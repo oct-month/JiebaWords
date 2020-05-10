@@ -2,6 +2,7 @@
 import os.path
 from typing import Dict, List
 
+from cache import CacheModule
 from .htmlreader import HtmlReader
 from .pdfreader import PdfReader
 from .txtreader import TxtReader
@@ -32,6 +33,8 @@ class ReadModule:
     def get_result(self) -> str:
         """获取所有文字"""
         self.__get_content()
-        return self.content
+        path = CacheModule.make_cache(self.content, 'analysis')
+        return path
+
 
     

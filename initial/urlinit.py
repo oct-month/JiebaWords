@@ -6,6 +6,7 @@ from hashlib import md5
 from typing import List
 
 from .base import Base
+from cache import CacheModule
 
 __all__ = ['UrlInit', ]
 
@@ -22,22 +23,10 @@ class UrlGet:
                 if resp.status in (200, 201):
                     self.content = await resp.text()
 
-    def __ensure_cache(self) -> None:
-        """确保cache目录存在"""
-        name = 'cache'
-        if not os.path.exists(name):
-            if os.path.isfile(name):
-                os.remove(name)
-            os.mkdir(name)
-
     async def __get_conent(self) -> None:
         """建立cache缓存文件"""
         await self.__fetch_html()
-        self.__ensure_cache()
-        filepath = 'cache' + os.path.sep + md5(self.url.encode()).hexdigest() + '.html'
-        with open(filepath, 'w', encoding='utf-8') as f:
-            f.write(self.content)
-            self.filepath = filepath
+        self.filepath = CacheModule.make_cache(self.content, 'html')
 
     async def get_path(self) -> str:
         await self.__get_conent()
