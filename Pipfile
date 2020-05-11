@@ -16,6 +16,8 @@ aiodns = "*"
 pdfminer3k = "*"
 pyecharts = "*"
 snapshot-selenium = "*"
+pyqt5 = "*"
+pyqt5-stubs = "*"
 
 [requires]
 python_version = "3.7"
