@@ -13,6 +13,7 @@ class EchartsMake:
     def __init__(self, result: Dict[str, float]) -> None:
         self.result = result
         self.htmlpath = ''
+        self.imgpath = ''
     
     def render_img(self) -> str:
         """渲染图片"""
@@ -27,6 +28,7 @@ class EchartsMake:
         if self.htmlpath == '':
             self.render_html()
         make_snapshot(snapshot, self.htmlpath, img)
+        self.imgpath = img
         return img
 
     def render_html(self) -> str:

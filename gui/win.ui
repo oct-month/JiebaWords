@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1009</width>
+    <width>1117</width>
     <height>623</height>
    </rect>
   </property>
@@ -227,6 +227,9 @@
       <height>61</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">font: 20pt &quot;微软雅黑&quot;;</string>
+    </property>
     <property name="text">
      <string>Action</string>
     </property>
@@ -262,7 +265,7 @@
      <rect>
       <x>510</x>
       <y>60</y>
-      <width>481</width>
+      <width>591</width>
       <height>511</height>
      </rect>
     </property>
@@ -276,7 +279,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1009</width>
+     <width>1117</width>
      <height>26</height>
     </rect>
    </property>
