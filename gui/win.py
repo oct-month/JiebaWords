@@ -8,7 +8,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from .listwidget import MyQListWidget
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -83,10 +83,10 @@ class Ui_MainWindow(object):
         self.line_2.setFrameShape(QtWidgets.QFrame.VLine)
         self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_2.setObjectName("line_2")
-        self.source_list = QtWidgets.QListWidget(self.centralwidget)
+        self.source_list = MyQListWidget(self.centralwidget)
         self.source_list.setGeometry(QtCore.QRect(10, 50, 231, 311))
         self.source_list.setObjectName("source_list")
-        self.stop_list = QtWidgets.QListWidget(self.centralwidget)
+        self.stop_list = MyQListWidget(self.centralwidget)
         self.stop_list.setGeometry(QtCore.QRect(10, 410, 231, 161))
         self.stop_list.setObjectName("stop_list")
         self.action_btn = QtWidgets.QPushButton(self.centralwidget)

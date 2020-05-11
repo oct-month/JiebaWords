@@ -1,9 +1,11 @@
 from typing import List, Dict
-from PyQt5.QtWidgets import QMainWindow
+from PyQt5.QtWidgets import QMainWindow, QFileDialog
 from PyQt5.QtGui import QPixmap, QImage
 from PyQt5.QtCore import QSize, Qt
 from json import dump
+import shutil
 
+from config.common import ENCODING
 from analysis import ANALY_TABLE, AnalysisModule
 from initial import InitialModule
 from read import ReadModule
@@ -15,38 +17,40 @@ class MainWindow(QMainWindow):
     def __init__(self) -> None:
         super().__init__()
         self.ui = Ui_MainWindow()
-        self.source_list: List[str] = []    # source列表
-        self.stop_list: List[str] = []      # stop列表
         self.analy_set = 'default'          # 引擎选择
         self.num_set = 20                   # 选词数量
         self.img_path = ''                  # 图片路径
         self.html_path = ''                 # html路径
         self.result: Dict[str, float] = {}
-    
+        # UI设定
         self.ui.setupUi(self)
-        self.ui.analy_set.addItems(ANALY_TABLE.keys())          # 添加引擎项
+        # 添加引擎项
+        self.ui.analy_set.addItems(ANALY_TABLE.keys())
+        # 添加按钮事件
         self.ui.action_btn.clicked.connect(self.action)
         self.ui.export_txt.clicked.connect(self.export_txt)
         self.ui.export_png.clicked.connect(self.export_png)
         self.ui.export_html.clicked.connect(self.export_html)
-        # self.ui.graphics_view.setScaledContents(True)           # 设置图片自适应
         
-
     def add_source_list(self, *item: str) -> None:
         """向source列表中添加项"""
         self.ui.source_list.addItems(item)
-        self.source_list.extend(item)
     
     def get_source_list(self) -> List[str]:
-        return self.source_list
+        tap = []
+        for i in range(self.ui.source_list.count()):
+            tap.append(self.ui.source_list.item(i).text())
+        return tap
     
     def add_stop_list(self, *item: str) -> None:
         """向stop列表中添加项"""
         self.ui.stop_list.addItems(item)
-        self.stop_list.extend(item)
     
     def get_stop_list(self) -> List[str]:
-        return self.stop_list
+        tap = []
+        for i in range(self.ui.stop_list.count()):
+            tap.append(self.ui.stop_list.item(i).text())
+        return tap
 
     def get_analy_set(self) -> str:
         return self.ui.analy_set.currentText()
@@ -82,11 +86,18 @@ class MainWindow(QMainWindow):
         self.ui.graphics_view.setPixmap(pixmap)
  
     def export_txt(self) -> None:
-        pass
+        if self.result:
+            path, _ = QFileDialog.getSaveFileName(self, "选择存储位置", '.', '文本文件(*.txt)', ) 
+            with open(path, 'w', encoding=ENCODING) as f:
+                dump(self.result, f, ensure_ascii=False, indent=4, separators=(',', ': '))
 
     def export_png(self) -> None:
-        pass
+        if self.img_path:
+            path, _ = QFileDialog.getSaveFileName(self, "选择存储位置", '.', '图像文件(*.png)', ) 
+            shutil.copyfile(self.img_path, path, follow_symlinks=True)
 
     def export_html(self) -> None:
-        pass
+        if self.html_path:
+            path, _ = QFileDialog.getSaveFileName(self, "选择存储位置", '.', 'web文件(*.html)', ) 
+            shutil.copyfile(self.html_path, path, follow_symlinks=True)
 
