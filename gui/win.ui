@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>996</width>
+    <width>1009</width>
     <height>623</height>
    </rect>
   </property>
@@ -38,7 +38,7 @@
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QComboBox" name="analy_box">
+      <widget class="QComboBox" name="analy_set">
        <item>
         <property name="text">
          <string>default</string>
@@ -182,26 +182,6 @@
      <string>operator</string>
     </property>
    </widget>
-   <widget class="QListView" name="source_list">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>50</y>
-      <width>231</width>
-      <height>301</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QListView" name="stop_list">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>411</y>
-      <width>231</width>
-      <height>161</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
@@ -244,13 +224,33 @@
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
+   <widget class="QListWidget" name="source_list">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>231</width>
+      <height>311</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="stop_list">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>410</y>
+      <width>231</width>
+      <height>161</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>996</width>
+     <width>1009</width>
      <height>26</height>
     </rect>
    </property>
