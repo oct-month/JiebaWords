@@ -3,6 +3,7 @@ import os
 from read import ReadModule
 from initial import InitialModule
 from analysis import AnalysisModule
+from cache import CacheModule
 
 def test_read():
     a = ['ttt', 'http://www.chinadaily.com.cn/']
@@ -23,3 +24,6 @@ if __name__ == "__main__":
     stoppaths = ['stopwords/'+i for i in os.listdir('stopwords')]
     result = AnalysisModule(path, 30).analyse()
     print(result)
+    CacheModule.clear_cache()
+
+

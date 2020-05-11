@@ -1,5 +1,6 @@
 """cache模块"""
 import os
+import shutil
 from hashlib import md5
 
 from config.common import CACHE_PATH, ENCODING
@@ -23,3 +24,8 @@ class CacheModule:
         with open(filepath, 'w', encoding=ENCODING) as f:
             f.write(content)
         return filepath
+
+    @classmethod
+    def clear_cache(cls) -> None:
+        if os.path.exists(CACHE_PATH):
+            shutil.rmtree(CACHE_PATH)
