@@ -3,6 +3,7 @@ from typing import Dict, List
 from collections import defaultdict
 import re
 
+from config.common import ENCODING
 from .base import Base
 
 
@@ -14,11 +15,11 @@ class EnglishAnaly(Base):
         self.set_stopwords(stopwords_path)
 
     def set_stopwords(self, stopwords_path: str) -> None:
-        with open(stopwords_path, 'r', encoding='utf-8') as f:
+        with open(stopwords_path, 'r', encoding=ENCODING) as f:
             self.stopwords.extend(f.readlines())
 
     def analyse(self, num: int=20) -> Dict[str, float]:
-        with open(self.path, 'r', encoding='utf-8') as f:
+        with open(self.path, 'r', encoding=ENCODING) as f:
             for line in f.readlines():
                 tap = re.split(r'[\W\s]+', line, flags=re.I)
                 for i in tap:

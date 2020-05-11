@@ -3,6 +3,7 @@ from typing import Dict
 from jieba import set_dictionary
 from jieba.analyse import extract_tags, set_stop_words
 
+from config.common import ENCODING
 from .base import Base
 
 
@@ -15,7 +16,7 @@ class JiebAnaly(Base):
         set_stop_words(stopwords_path)
 
     def analyse(self, num: int=20) -> Dict[str, float]:
-        with open(self.path, 'r', encoding='utf-8') as f:
+        with open(self.path, 'r', encoding=ENCODING) as f:
             content = f.read()
             result = extract_tags(content, topK=num, withWeight=True)
             return dict(result)
