@@ -11,9 +11,9 @@ __all__ = ['ReadModule', ]
 
 # 文件类型注册表
 READ_TABLE = {
+    'default': TxtReader,
     '.html': HtmlReader,
     '.pdf': PdfReader,
-    'default': TxtReader,
 }
 
 

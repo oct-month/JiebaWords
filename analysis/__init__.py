@@ -6,9 +6,9 @@ from .jiebanaly import JiebAnaly
 
 
 ANALY_TABLE = {
+    'default': JiebAnaly,
     'jieba': JiebAnaly,
     'english': EnglishAnaly,
-    'default': JiebAnaly
 }
 
 

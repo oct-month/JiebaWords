@@ -17,7 +17,7 @@ if __name__ == "__main__":
     result = AnalysisModule(path, 30).analyse()
     print(result)
     pie = Pie(init_opts=InitOpts(theme=ThemeType.LIGHT))
-    pie.add('奥里给', result.items())
+    pie.add('KeyWords', result.items())
     pie.set_global_opts(title_opts=TitleOpts(title='主标题', subtitle='附标题'))
     
     pie.render('echarts/charts.html')

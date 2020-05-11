@@ -2,6 +2,7 @@
 import os
 import shutil
 from hashlib import md5
+from random import randint
 
 from config.common import CACHE_PATH, ENCODING
 
@@ -29,3 +30,7 @@ class CacheModule:
     def clear_cache(cls) -> None:
         if os.path.exists(CACHE_PATH):
             shutil.rmtree(CACHE_PATH)
+    
+    @classmethod
+    def create_cache_path(cls, typename: str) -> str:
+        return CACHE_PATH + ''.join([str(randint(0, 9)) for i in range(32)]) + '.' + typename

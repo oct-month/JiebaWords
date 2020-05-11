@@ -38,23 +38,7 @@
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QComboBox" name="analy_set">
-       <item>
-        <property name="text">
-         <string>default</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>jieba</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>english</string>
-        </property>
-       </item>
-      </widget>
+      <widget class="QComboBox" name="analy_set"/>
      </item>
      <item row="1" column="0">
       <widget class="QLabel" name="label_3">
@@ -74,16 +58,6 @@
       </widget>
      </item>
     </layout>
-   </widget>
-   <widget class="QGraphicsView" name="graphics_view">
-    <property name="geometry">
-     <rect>
-      <x>510</x>
-      <y>50</y>
-      <width>481</width>
-      <height>501</height>
-     </rect>
-    </property>
    </widget>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
@@ -242,6 +216,58 @@
       <width>231</width>
       <height>161</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="action_btn">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>300</y>
+      <width>201</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Action</string>
+    </property>
+   </widget>
+   <widget class="Line" name="line_3">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>280</y>
+      <width>211</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_4">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>365</y>
+      <width>211</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="graphics_view">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>60</y>
+      <width>481</width>
+      <height>511</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>

@@ -52,6 +52,5 @@ class UrlInit(Base):
         loop = asyncio.get_event_loop()
         task = asyncio.ensure_future(self.__get_paths())
         loop.run_until_complete(task)
-        loop.close()
         return self.paths
 
