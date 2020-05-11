@@ -11,7 +11,7 @@ from read import ReadModule
 from analysis import AnalysisModule
 
 if __name__ == "__main__":
-    a = ['cache/files']
+    a = ['https://www.androiddevtools.cn/']
     a = InitialModule(a).init_paths()
     path = ReadModule(a).read_all()
     result = AnalysisModule(path, 30).analyse()
