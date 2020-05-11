@@ -5,12 +5,14 @@ from jieba.analyse import extract_tags, set_stop_words
 
 from .base import Base
 
-STOP_WORDS = 'stopwords/all_stopwords.txt'
 
 class JiebAnaly(Base):
-    def __init__(self, path: str) -> None:
+    def __init__(self, path: str, stopwords_path: str) -> None:
         self.path = path
-        set_stop_words(STOP_WORDS)
+        self.set_stopwords(stopwords_path)
+
+    def set_stopwords(self, stopwords_path: str) -> None:
+        set_stop_words(stopwords_path)
 
     def analyse(self, num: int=20) -> Dict[str, float]:
         with open(self.path, 'r', encoding='utf-8') as f:

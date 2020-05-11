@@ -19,5 +19,3 @@ class InitialModule:
             self.paths = init(self.paths).init_paths()
         return self.paths
 
-
-

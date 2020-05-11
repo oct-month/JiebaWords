@@ -1,4 +1,4 @@
-from typing import Dict
+from typing import Dict, List
 
 from .englishanaly import EnglishAnaly
 from .jiebanaly import JiebAnaly
@@ -10,6 +10,8 @@ ANALY_TABLE = {
     'default': JiebAnaly
 }
 
+STOP_WORDS = 'stopwords/use.txt'
+
 class AnalysisModule:
     def __init__(self, path: str, num: int=20, analys: str='default') -> None:
         self.path = path
@@ -17,4 +19,4 @@ class AnalysisModule:
         self.analy_mod = ANALY_TABLE.get(analys) or ANALY_TABLE.get('default')
 
     def analyse(self) -> Dict[str, float]:
-        return self.analy_mod(self.path).analyse(self.num)
+        return self.analy_mod(self.path, STOP_WORDS).analyse(self.num)

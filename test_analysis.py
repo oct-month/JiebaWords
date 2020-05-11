@@ -1,3 +1,5 @@
+import os
+
 from read import ReadModule
 from initial import InitialModule
 from analysis import AnalysisModule
@@ -15,8 +17,9 @@ def test_read():
     print(n)
 
 if __name__ == "__main__":
-    a = ['test', 'http://www.chinadaily.com.cn/', 'https://www.androiddevtools.cn/', 'https://www.dytt8.net/html/gndy/index.html']
+    a = ['http://www.chinadaily.com.cn/', 'https://www.androiddevtools.cn/', 'https://www.dytt8.net/html/gndy/index.html']
     a = InitialModule(a).init_paths()
     path = ReadModule(a).read_all()
+    stoppaths = ['stopwords/'+i for i in os.listdir('stopwords')]
     result = AnalysisModule(path, 30).analyse()
     print(result)

@@ -5,17 +5,16 @@ import re
 
 from .base import Base
 
-STOP_WORDS = 'stopwords/en_stopwords.txt'
 
 class EnglishAnaly(Base):
-    def __init__(self, path: str) -> None:
+    def __init__(self, path: str, stopwords_path: str) -> None:
         self.path: str = path
         self.stopwords: List[str] = ['']
         self.result: Dict[str, float] = defaultdict(int)
-        self.__set_stopwords()
+        self.set_stopwords(stopwords_path)
 
-    def __set_stopwords(self) -> None:
-        with open(STOP_WORDS, 'r', encoding='utf-8') as f:
+    def set_stopwords(self, stopwords_path: str) -> None:
+        with open(stopwords_path, 'r', encoding='utf-8') as f:
             self.stopwords.extend(f.readlines())
 
     def analyse(self, num: int=20) -> Dict[str, float]:

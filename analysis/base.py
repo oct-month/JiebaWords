@@ -9,3 +9,7 @@ class Base(metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def analyse(self, num: int) -> Dict[str, float]:
         pass
+
+    @abc.abstractmethod
+    def set_stopwords(self, stopwords_path: str) -> None:
+        pass

@@ -38,7 +38,7 @@
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QComboBox" name="comboBox">
+      <widget class="QComboBox" name="analy_box">
        <item>
         <property name="text">
          <string>default</string>
@@ -67,7 +67,7 @@
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QSpinBox" name="spinBox">
+      <widget class="QSpinBox" name="num_set">
        <property name="value">
         <number>20</number>
        </property>
@@ -75,7 +75,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QGraphicsView" name="graphicsView">
+   <widget class="QGraphicsView" name="graphics_view">
     <property name="geometry">
      <rect>
       <x>510</x>
@@ -144,21 +144,21 @@
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="export_txt">
        <property name="text">
         <string>导出文本</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_3">
+      <widget class="QPushButton" name="export_png">
        <property name="text">
         <string>导出图像</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="export_html">
        <property name="text">
         <string>导出HTML</string>
        </property>
@@ -182,7 +182,7 @@
      <string>operator</string>
     </property>
    </widget>
-   <widget class="QListView" name="listView">
+   <widget class="QListView" name="source_list">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -192,7 +192,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QListView" name="listView_2">
+   <widget class="QListView" name="stop_list">
     <property name="geometry">
      <rect>
       <x>10</x>
