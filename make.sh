@@ -2,8 +2,8 @@
 .venv/Scripts/activate.bat
 # # 安装依赖
 # pip install -r requirements.txt
-# # -w 不显示终端  -F 打包所有库
-pyinstaller app.pyw -c
+# # -w 不显示终端  -F 打包所有库 -c 显示终端
+pyinstaller -w -i files/img/title.ico app.pyw
 # # 提供必要文件
 
 cp -r files dist/app/

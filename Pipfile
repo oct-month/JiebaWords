@@ -18,6 +18,7 @@ snapshot-selenium = "*"
 pyqt5 = "*"
 pyqt5-stubs = "*"
 pyinstaller = "*"
+setuptools = "==44.0.0"
 
 [requires]
 python_version = "3.7"
