@@ -72,6 +72,7 @@ class MainWindow(QMainWindow):
         self.result = AnalysisModule(path, num_set, analy_set).analyse()
         # 画图
         echart = EchartsMake(self.result)
+        echart.render_html()
         img_path = echart.render_img()
         self.html_path = echart.htmlpath
         self.img_path = echart.imgpath
