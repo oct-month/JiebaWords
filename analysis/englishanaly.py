@@ -3,7 +3,7 @@ from typing import Dict, List
 from collections import defaultdict
 import re
 
-from config.common import ENCODING
+from config import ENCODING
 from .base import Base
 
 

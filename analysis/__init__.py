@@ -1,10 +1,11 @@
+"""词频分析模块"""
 from typing import Dict, List
 
-from config.common import STOP_WORDS
+from config import STOP_WORDS
 from .englishanaly import EnglishAnaly
 from .jiebanaly import JiebAnaly
 
-
+# 可选引擎
 ANALY_TABLE = {
     'default': JiebAnaly,
     'jieba': JiebAnaly,

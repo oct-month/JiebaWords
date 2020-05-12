@@ -1,3 +1,4 @@
+"""echarts模块"""
 from typing import Dict
 import os
 import sys

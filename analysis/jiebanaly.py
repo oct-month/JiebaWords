@@ -3,7 +3,7 @@ from typing import Dict
 from jieba import set_dictionary
 from jieba.analyse import extract_tags, set_stop_words
 
-from config.common import ENCODING
+from config import ENCODING
 from .base import Base
 
 

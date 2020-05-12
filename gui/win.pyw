@@ -9,7 +9,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from .listwidget import MyQListWidget
-from .label import MyLabel
+from .label import MyLabel, CliLabel
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -104,7 +104,7 @@ class Ui_MainWindow(object):
         self.line_4.setFrameShape(QtWidgets.QFrame.HLine)
         self.line_4.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_4.setObjectName("line_4")
-        self.graphics_view = QtWidgets.QLabel(self.centralwidget)
+        self.graphics_view = CliLabel(self.centralwidget)
         self.graphics_view.setGeometry(QtCore.QRect(510, 60, 591, 511))
         self.graphics_view.setText("")
         self.graphics_view.setObjectName("graphics_view")
@@ -115,7 +115,7 @@ class Ui_MainWindow(object):
         self.label = MyLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(140, 4, 35, 41))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("gui/trash.jpg"))
+        self.label.setPixmap(QtGui.QPixmap("gui/img/trash.jpg"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         MainWindow.setCentralWidget(self.centralwidget)

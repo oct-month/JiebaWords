@@ -1,6 +1,7 @@
+"""判断文件编码的模块"""
 from chardet import detect
 
-from config.common import ENCODING
+from config import ENCODING
 
 class EncodeModule:
     def __init__(self, path: str) -> None:

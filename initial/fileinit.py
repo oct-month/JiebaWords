@@ -21,6 +21,8 @@ class FileInit(Base):
 
     def init_paths(self) -> List[str]:
         for path in self.paths:
+            # if not os.path.exists(path):
+            #     raise RuntimeError('文件不存在')
             if os.path.isfile(path):
                 if path not in self.taps:
                     self.taps.append(path)

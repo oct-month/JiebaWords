@@ -1,6 +1,6 @@
 from typing import List
 
-from config.common import STOP_WORDS, ENCODING
+from config import STOP_WORDS, ENCODING
 from encode import EncodeModule
 
 

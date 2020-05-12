@@ -1,3 +1,4 @@
+"""主窗口配置"""
 from typing import List, Dict
 from PyQt5.QtWidgets import QMainWindow, QFileDialog
 from PyQt5.QtGui import QPixmap, QImage
@@ -5,7 +6,7 @@ from PyQt5.QtCore import QSize, Qt
 from json import dump
 import shutil
 
-from config.common import ENCODING
+from config import ENCODING
 from analysis import ANALY_TABLE, AnalysisModule
 from initial import InitialModule
 from read import ReadModule
@@ -80,6 +81,7 @@ class MainWindow(QMainWindow):
         img_path = echart.render_img()
         self.html_path = echart.htmlpath
         self.img_path = echart.imgpath
+        self.ui.graphics_view.img_path = self.img_path
         self.set_graphics_path(img_path)
 
     def set_graphics_path(self, path: str) -> None:
@@ -95,17 +97,20 @@ class MainWindow(QMainWindow):
 
     def export_txt(self) -> None:
         if self.result:
-            path, _ = QFileDialog.getSaveFileName(self, "选择存储位置", '.', '文本文件(*.txt)', ) 
-            with open(path, 'w', encoding=ENCODING) as f:
-                dump(self.result, f, ensure_ascii=False, indent=4, separators=(',', ': '))
+            path, _ = QFileDialog.getSaveFileName(self, "选择存储位置", '.', '文本文件(*.txt)', )
+            if path:
+                with open(path, 'w', encoding=ENCODING) as f:
+                    dump(self.result, f, ensure_ascii=False, indent=4, separators=(',', ': '))
 
     def export_png(self) -> None:
         if self.img_path:
             path, _ = QFileDialog.getSaveFileName(self, "选择存储位置", '.', '图像文件(*.png)', ) 
-            shutil.copyfile(self.img_path, path, follow_symlinks=True)
+            if path:
+                shutil.copyfile(self.img_path, path, follow_symlinks=True)
 
     def export_html(self) -> None:
         if self.html_path:
             path, _ = QFileDialog.getSaveFileName(self, "选择存储位置", '.', 'web文件(*.html)', ) 
-            shutil.copyfile(self.html_path, path, follow_symlinks=True)
+            if path:
+                shutil.copyfile(self.html_path, path, follow_symlinks=True)
 

@@ -16,16 +16,21 @@ class MyQListWidget(QListWidget):
         self.setDefaultDropAction(Qt.CopyAction)
         # 双击可编辑
         self.edited_item = self.currentItem()
+        self.close_flag = True
         self.doubleClicked.connect(self.item_double_clicked)
         self.currentItemChanged.connect(self.close_edit)
     
     def keyPressEvent(self, e: QKeyEvent) -> None:
         """回车事件，关闭edit"""
+        super().keyPressEvent(e)
         if e.key() == Qt.Key_Return:
-            self.close_edit()
+            if self.close_flag:
+                self.close_edit()
+            self.close_flag = True
 
     def edit_new_item(self) -> None:
         """edit一个新的item"""
+        self.close_flag = False
         self.close_edit()
         count = self.count()
         self.addItem('')
@@ -42,7 +47,7 @@ class MyQListWidget(QListWidget):
         self.openPersistentEditor(item)
         self.editItem(item)
     
-    def close_edit(self) -> None:
+    def close_edit(self, *_) -> None:
         """关闭edit"""
         if self.edited_item and self.isPersistentEditorOpen(self.edited_item):
             self.closePersistentEditor(self.edited_item)

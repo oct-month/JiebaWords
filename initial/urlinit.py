@@ -13,6 +13,8 @@ class UrlGet:
     def __init__(self, url: str, session: aiohttp.ClientSession) -> None:
         self.url = url
         self.session = session
+        self.content = ''
+        self.filepath = ''
     
     async def __fetch_html(self) -> None:
         """发起get请求"""
