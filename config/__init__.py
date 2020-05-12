@@ -1,3 +1,5 @@
+# 图标位置
+TITLE_ICON = 'gui/img/icon.jpg'
 # 最终停用词文件位置
 STOP_WORDS = 'stopwords/use.txt'
 # 缓存文件位置

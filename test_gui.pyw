@@ -12,4 +12,5 @@ if __name__ == '__main__':
     c.add_source_list(*['http://www.chinadaily.com.cn/', 'https://www.androiddevtools.cn/', 'https://www.dytt8.net/html/gndy/index.html'])
     c.add_stop_list(*STOP_WORDS_INIT)
     c.show()
+    
     sys.exit(app.exec_())

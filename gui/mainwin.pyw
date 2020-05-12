@@ -13,6 +13,7 @@ from read import ReadModule
 from stopwords import StopWords
 from .win import Ui_MainWindow
 from .echart import EchartsMake
+from .splash import MyQSplashScreen
 
 
 class MainWindow(QMainWindow):
@@ -67,25 +68,26 @@ class MainWindow(QMainWindow):
 
     def action(self) -> None:
         """开始分析词频"""
-        # 拿到参数
-        source_list = self.get_source_list()
-        stop_list = self.get_stop_list()
-        analy_set = self.get_analy_set()
-        num_set = self.get_num_set()
-        # 分析
-        source_list = InitialModule(source_list).init_paths()
-        path = ReadModule(source_list).read_all()
-        stop_list = InitialModule(stop_list).init_paths()
-        StopWords.set_stopwords(stop_list)
-        self.result = AnalysisModule(path, num_set, analy_set).analyse()
-        # 画图
-        echart = EchartsMake(self.result)
-        echart.render_html()
-        img_path = echart.render_img()
-        self.html_path = echart.htmlpath
-        self.img_path = echart.imgpath
-        self.ui.graphics_view.img_path = self.img_path
-        self.set_graphics_path(img_path)
+        with MyQSplashScreen(self):
+            # 拿到参数
+            source_list = self.get_source_list()
+            stop_list = self.get_stop_list()
+            analy_set = self.get_analy_set()
+            num_set = self.get_num_set()
+            # 分析
+            source_list = InitialModule(source_list).init_paths()
+            path = ReadModule(source_list).read_all()
+            stop_list = InitialModule(stop_list).init_paths()
+            StopWords.set_stopwords(stop_list)
+            self.result = AnalysisModule(path, num_set, analy_set).analyse()
+            # 画图
+            echart = EchartsMake(self.result)
+            echart.render_html()
+            img_path = echart.render_img()
+            self.html_path = echart.htmlpath
+            self.img_path = echart.imgpath
+            self.ui.graphics_view.img_path = self.img_path
+            self.set_graphics_path(img_path)
 
     def set_graphics_path(self, path: str) -> None:
         """更新图片"""
