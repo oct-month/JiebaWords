@@ -4,6 +4,9 @@
 .vscode/
 .idea/
 __pycache__/
+dist/
+build/
+app.spec
 
 test/
 cache/files/

@@ -9,6 +9,7 @@ from pyecharts.render import make_snapshot
 from snapshot_selenium import snapshot
 
 from cache import CacheModule
+# from config import LINUX_PATH, WIN32_PATH, MAC_PATH
 
 class EchartsMake:
     def __init__(self, result: Dict[str, float]) -> None:
@@ -18,13 +19,12 @@ class EchartsMake:
     
     def render_img(self) -> str:
         """渲染图片"""
-        # 不同系统不同处理
-        if sys.platform == 'linux':
-            os.environ['PATH'] = '/usr/bin:./drive/linux/'
-        elif sys.platform == 'win32':
-            os.environ['PATH'] = './drive/win32'
-        else:
-            os.environ['PATH'] = '/usr/bin:./drive/mac'
+        # if sys.platform == 'linux':
+        #     os.environ['PATH'] = LINUX_PATH
+        # elif sys.platform == 'win32':
+        #     os.environ['PATH'] = WIN32_PATH
+        # else:
+        #     os.environ['PATH'] = MAC_PATH
         img = CacheModule.create_cache_path('png')
         if self.htmlpath == '':
             self.render_html()

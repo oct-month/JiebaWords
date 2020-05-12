@@ -1,6 +1,5 @@
 """使用jieba引擎分析词频"""
 from typing import Dict
-from jieba import set_dictionary
 from jieba.analyse import extract_tags, set_stop_words
 
 from config import ENCODING

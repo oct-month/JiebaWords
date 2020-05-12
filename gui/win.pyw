@@ -9,6 +9,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+from config import TRASH_ICON
 from .label import MyLabel, CliLabel
 from .listwidget import MyQListWidget
 
@@ -117,7 +118,7 @@ class Ui_MainWindow(object):
         self.label = MyLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(140, 4, 35, 41))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("gui/img/trash.jpg"))
+        self.label.setPixmap(QtGui.QPixmap(TRASH_ICON))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         MainWindow.setCentralWidget(self.centralwidget)

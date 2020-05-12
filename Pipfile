@@ -7,7 +7,6 @@ verify_ssl = true
 
 [packages]
 jieba = "*"
-mypy = "*"
 lxml = "*"
 beautifulsoup4 = "*"
 aiohttp = "*"
@@ -18,6 +17,7 @@ pyecharts = "*"
 snapshot-selenium = "*"
 pyqt5 = "*"
 pyqt5-stubs = "*"
+pyinstaller = "*"
 
 [requires]
 python_version = "3.7"
