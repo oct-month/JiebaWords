@@ -9,6 +9,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from .listwidget import MyQListWidget
+from .label import MyLabel
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -107,6 +108,16 @@ class Ui_MainWindow(object):
         self.graphics_view.setGeometry(QtCore.QRect(510, 60, 591, 511))
         self.graphics_view.setText("")
         self.graphics_view.setObjectName("graphics_view")
+        self.add_file_btn = QtWidgets.QPushButton(self.centralwidget)
+        self.add_file_btn.setGeometry(QtCore.QRect(200, 10, 35, 35))
+        self.add_file_btn.setStyleSheet("font: 14pt \"微软雅黑\";")
+        self.add_file_btn.setObjectName("add_file_btn")
+        self.label = MyLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(140, 4, 35, 41))
+        self.label.setText("")
+        self.label.setPixmap(QtGui.QPixmap("gui/trash.jpg"))
+        self.label.setScaledContents(True)
+        self.label.setObjectName("label")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1117, 26))
@@ -133,3 +144,4 @@ class Ui_MainWindow(object):
         self.label_7.setText(_translate("MainWindow", "operator"))
         self.label_8.setText(_translate("MainWindow", "stopwords"))
         self.action_btn.setText(_translate("MainWindow", "Action"))
+        self.add_file_btn.setText(_translate("MainWindow", "+"))

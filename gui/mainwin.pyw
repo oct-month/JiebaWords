@@ -13,7 +13,9 @@ from stopwords import StopWords
 from .win import Ui_MainWindow
 from .echart import EchartsMake
 
+
 class MainWindow(QMainWindow):
+    """主窗口"""
     def __init__(self) -> None:
         super().__init__()
         self.ui = Ui_MainWindow()
@@ -31,6 +33,7 @@ class MainWindow(QMainWindow):
         self.ui.export_txt.clicked.connect(self.export_txt)
         self.ui.export_png.clicked.connect(self.export_png)
         self.ui.export_html.clicked.connect(self.export_html)
+        self.ui.add_file_btn.clicked.connect(self.add_source)
         
     def add_source_list(self, *item: str) -> None:
         """向source列表中添加项"""
@@ -59,6 +62,7 @@ class MainWindow(QMainWindow):
         return int(self.ui.num_set.value())
 
     def action(self) -> None:
+        """开始分析词频"""
         # 拿到参数
         source_list = self.get_source_list()
         stop_list = self.get_stop_list()
@@ -86,6 +90,9 @@ class MainWindow(QMainWindow):
         pixmap = QPixmap.fromImage(img)
         self.ui.graphics_view.setPixmap(pixmap)
  
+    def add_source(self) -> None:
+        self.ui.source_list.edit_new_item()
+
     def export_txt(self) -> None:
         if self.result:
             path, _ = QFileDialog.getSaveFileName(self, "选择存储位置", '.', '文本文件(*.txt)', ) 
