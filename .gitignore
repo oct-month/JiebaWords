@@ -9,5 +9,4 @@ build/
 app.spec
 
 test/
-cache/files/
-use.txt
+files/cache/
