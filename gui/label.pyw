@@ -29,13 +29,14 @@ class CliLabel(QLabel):
         self.img_path = ''
     
     def mousePressEvent(self, e: QMouseEvent) -> None:
-        dialog = QDialog(self)
-        dialog.setWindowTitle('详情')
-        dialog.setWindowModality(Qt.ApplicationModal)   # 屏蔽主窗口
-        layout = QVBoxLayout()
-        label = QLabel()
-        label.setPixmap(QPixmap(self.img_path))
-        layout.addWidget(label)
-        dialog.setLayout(layout)
-        dialog.exec_()
+        if self.img_path:
+            dialog = QDialog(self)
+            dialog.setWindowTitle('详情')
+            dialog.setWindowModality(Qt.ApplicationModal)   # 屏蔽主窗口
+            layout = QVBoxLayout()
+            label = QLabel()
+            label.setPixmap(QPixmap(self.img_path))
+            layout.addWidget(label)
+            dialog.setLayout(layout)
+            dialog.exec_()
 

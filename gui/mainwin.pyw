@@ -35,7 +35,10 @@ class MainWindow(QMainWindow):
         self.ui.export_png.clicked.connect(self.export_png)
         self.ui.export_html.clicked.connect(self.export_html)
         self.ui.add_file_btn.clicked.connect(self.add_source)
-        
+        #禁止拉伸窗口大小
+        self.setWindowFlag(Qt.WindowMinMaxButtonsHint)
+        self.setFixedSize(self.width(), self.height())
+
     def add_source_list(self, *item: str) -> None:
         """向source列表中添加项"""
         self.ui.source_list.addItems(item)

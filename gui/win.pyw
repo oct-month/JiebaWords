@@ -8,8 +8,10 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from .listwidget import MyQListWidget
+
 from .label import MyLabel, CliLabel
+from .listwidget import MyQListWidget
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
