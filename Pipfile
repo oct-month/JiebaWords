@@ -19,6 +19,7 @@ pyqt5 = "*"
 pyqt5-stubs = "*"
 pyinstaller = "*"
 setuptools = "==44.0.0"
+python-docx = "*"
 
 [requires]
 python_version = "3.7"

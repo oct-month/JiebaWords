@@ -39,6 +39,13 @@ class MainWindow(QMainWindow):
         #禁止拉伸窗口大小
         self.setWindowFlag(Qt.WindowMinMaxButtonsHint)
         self.setFixedSize(self.width(), self.height())
+    
+    def get_pro_cons(self) -> int:
+        """获取正反序选项"""
+        tap = self.ui.pros_cons.currentText()
+        if tap == '反序':
+            return -1
+        return 1
 
     def add_source_list(self, *item: str) -> None:
         """向source列表中添加项"""
@@ -73,6 +80,8 @@ class MainWindow(QMainWindow):
         stop_list = self.get_stop_list()
         analy_set = self.get_analy_set()
         num_set = self.get_num_set()
+        pro_cons = self.get_pro_cons()
+        num_set *= pro_cons
         if source_list and num_set:
             with MyQSplashScreen(self):
                 # 分析

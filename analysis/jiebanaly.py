@@ -17,6 +17,9 @@ class JiebAnaly(Base):
     def analyse(self, num: int=20) -> Dict[str, float]:
         with open(self.path, 'r', encoding=ENCODING) as f:
             content = f.read()
-            result = extract_tags(content, topK=num, withWeight=True)
+            if num > 0:
+                result = extract_tags(content, topK=num, withWeight=True)
+            else:
+                result = extract_tags(content, topK=None, withWeight=True)[num:]
             return dict(result)
 

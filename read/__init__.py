@@ -6,6 +6,7 @@ from cache import CacheModule
 from .htmlreader import HtmlReader
 from .pdfreader import PdfReader
 from .txtreader import TxtReader
+from .wordreader import WordReader
 
 __all__ = ['ReadModule', ]
 
@@ -14,6 +15,8 @@ READ_TABLE = {
     'default': TxtReader,
     '.html': HtmlReader,
     '.pdf': PdfReader,
+    '.doc': WordReader,
+    'docx': WordReader,
 }
 
 
@@ -28,7 +31,12 @@ class ReadModule:
             exten_name = os.path.splitext(path)[1]
             mod = READ_TABLE.get(exten_name, None)    
             mod = mod or READ_TABLE.get('default')
-            self.content += mod(path).read_all() + '\r\n'
+            try:
+                tap = mod(path).read_all()
+            except Exception as e:
+                tap = ''
+                print(path + " 文件编码格式不明确")
+            self.content += tap + '\r\n'
 
     def read_all(self) -> str:
         """获取所有文字"""

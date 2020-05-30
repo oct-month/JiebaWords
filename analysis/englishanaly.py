@@ -27,5 +27,9 @@ class EnglishAnaly(Base):
                         self.result[i] += 1
         words = list(self.result.items())
         words = sorted(words, key=lambda x: x[-1], reverse=True)
-        return dict(words[:num])
+        if num > 0:
+            result = dict(words[:num])
+        else:
+            result = dict(words[num:])
+        return result
 
