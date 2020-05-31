@@ -115,7 +115,8 @@ class MainWindow(QMainWindow):
             path, _ = QFileDialog.getSaveFileName(self, "选择存储位置", '.', '文本文件(*.txt)', )
             if path:
                 with open(path, 'w', encoding=ENCODING) as f:
-                    dump(self.result, f, ensure_ascii=False, indent=4, separators=(',', ': '))
+                    for i in self.result.keys():
+                        f.write(i + '\n')
 
     def export_png(self) -> None:
         if self.img_path:
