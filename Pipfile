@@ -22,4 +22,4 @@ setuptools = "==44.0.0"
 python-docx = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.8"

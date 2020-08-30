@@ -13,3 +13,4 @@ cp -r jieba dist/app/
 cp -r pyecharts dist/app/
 cp files/drive/win32/chromedriver.exe dist/app/
 rm -r dist/app/files/drive
+rm app.spec
