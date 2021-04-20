@@ -26,7 +26,7 @@ pefile==2019.4.18
 pluggy==0.13.1
 ply==3.11
 prettytable==0.7.2
-py==1.8.1
+py==1.10.0
 pycares==3.1.1
 pycparser==2.20
 pyecharts==1.7.1
