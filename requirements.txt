@@ -47,7 +47,7 @@ snapshot-selenium==0.0.2
 soupsieve==2.0.1
 typed-ast==1.4.1
 typing-extensions==3.7.4.2
-urllib3==1.25.9
+urllib3==1.26.5
 wcwidth==0.1.9
 yarl==1.4.2
 zipp==3.1.0
